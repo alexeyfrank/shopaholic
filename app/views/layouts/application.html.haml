@@ -1,0 +1,48 @@
+!!! 5
+%html(lang="en" ng-app="app")
+  %head
+    %meta(charset="utf-8")
+    %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    %title= content_for?(:title) ? yield(:title) : "Rails4AngularTaskManager"
+    = csrf_meta_tags
+    / Le HTML5 shim, for IE6-8 support of HTML elements
+    /[if lt IE 9]
+      = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
+    = stylesheet_link_tag "application", :media => "all"
+    = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
+    = javascript_include_tag "web/application"
+
+
+  %body
+    .navbar.navbar-fixed-top(ng-controller="NavbarController")
+      .navbar-inner
+        .container
+          %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a#brand.brand(href="#") Rails4AngularTaskManager
+          .container.nav-collapse
+            %ul.nav
+              %li= link_to "Users", "#/users"
+
+            %ul.nav.pull-right
+              %li(ng-show="!isSignedIn()")= link_to "Sign In", "#/session/new"
+              %li.dropdown(ng-show="isSignedIn()")
+                %a.dropdown-toggle(ng-bind="currentUser().email")
+                %ul.dropdown-menu
+                  %li
+                    %a(ng-click="logout()") Sign Out
+    .container
+
+      .row
+        .span12
+          .flash(ng-controller="NotificationsController")
+            %div(ng-show="isVisible()" class="alert alert-{{notification.type}}" ng-bind="notification.message")
+
+          .content(ui-view)
+            = yield
+
+      %footer
+        %p &copy; Company 2013

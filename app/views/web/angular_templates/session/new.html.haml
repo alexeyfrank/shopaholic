@@ -1,0 +1,14 @@
+%h1 Sign In
+
+%form
+  .control-group
+    %label.control-label Email
+    .controls
+      %input(type="text" ng-model="user.email")
+
+  .control-group
+    %label.control-label Email
+    .controls
+      %input(type="password" ng-model="user.password")
+  
+  %button.btn.btn-primary(ng-click="login()") Login

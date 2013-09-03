@@ -1,0 +1,16 @@
+%h1 Users angular tpl
+
+%a.btn(ng-click="new()") Create new user
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th Email
+      %th Actions
+
+  %tbody
+    %tr(ng-repeat="user in users")
+      %td(ng-bind="user.email")
+      %td
+        %a.btn.btn-mini(ng-click="edit(user)") Edit user
+        %a.btn.btn-mini(ng-click="destroy(user)") Destroy user
