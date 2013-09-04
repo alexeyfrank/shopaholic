@@ -1,4 +1,4 @@
-angular.module('app.modules.session.controllers.new_session', [])
+angular.module('app.modules.session.controllers')
   .controller 'NewSessionController', ($scope, $state, auth, notifications) ->
     $scope.user = {}
 

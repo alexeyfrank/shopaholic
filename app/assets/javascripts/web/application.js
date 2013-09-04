@@ -14,12 +14,15 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require js-routes
+//= require underscore
 //= require angular
 //= require angular-bootstrap
+//= require angular-underscore
 //= require angular-resource
 //= require angular-ui-router
 //= require angularjs/rails/resource
 //= require ./boot
+//= require ./vendor/vendor
 //= require_tree ./config
 //= require_tree ./lib
-//= require_tree ./app
+//= require ./app/app

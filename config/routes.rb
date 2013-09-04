@@ -7,7 +7,7 @@ Shopaholic::Application.routes.draw do
   namespace :api do
     namespace :v1 do
       resource :session, only: [:show, :create, :destroy]
-      resources :users, only: [:index, :create, :update, :destroy]
+      resources :users, only: [:index, :show, :create, :update, :destroy]
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.

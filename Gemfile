@@ -16,6 +16,7 @@ gem 'validates'
 gem 'draper'
 gem 'authority'
 gem 'active_model_serializers'
+gem 'simple_form'
 gem 'puma'
 
 
@@ -36,6 +37,7 @@ gem 'js-routes'
 
 gem 'angularjs-rails'
 gem 'angularjs-rails-resource'
+gem 'underscore-rails'
 
 group :doc do
   gem 'annotate'

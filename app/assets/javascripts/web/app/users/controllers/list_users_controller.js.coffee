@@ -1,5 +1,6 @@
-angular.module('app.modules.users.controllers.list_users', []).controller 'ListUsersController', ($scope, Users, $state) ->
-  $scope.users = Users.query()
+angular.module('app.modules.users.controllers').controller 'ListUsersController', ($scope, notifications, Users, $state, _) ->
+
+  Users.query().then (users) -> $scope.users = users
 
   $scope.new = ->
     $state.transitionTo 'new_user'
@@ -8,4 +9,6 @@ angular.module('app.modules.users.controllers.list_users', []).controller 'ListU
     $state.transitionTo 'edit_user', id: user.id
 
   $scope.destroy = (user) -> 
-    Users.destroy(user)
+    user.delete().then ->
+      $scope.users = _.without($scope.users, user)
+      notifications.notice('User successfully deleted!')
