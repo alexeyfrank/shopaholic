@@ -5,6 +5,7 @@ angular.module('app').config ($stateProvider, $urlRouterProvider) ->
     .state('root',
       url: '/'
       templateUrl: RouterHelper.templateUrl('welcome/index')
+      controller: 'WelcomeController'
     )
     .state('new_session',
       url: "/session/new"

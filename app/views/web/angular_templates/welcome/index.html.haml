@@ -1,1 +1,12 @@
-%h1 welcome to angular js world!
+%h1 Dashboard panel
+
+.row
+  .span6
+    %table.table.table-striped
+      %thead
+        %tr
+          %th Email
+      %tbody
+        %tr(ng-repeat="user in users")
+          %td(ng-bind="user.email")
+
