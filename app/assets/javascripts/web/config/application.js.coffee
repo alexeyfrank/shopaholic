@@ -5,8 +5,8 @@ angular.module('app').config ($httpProvider) ->
 
 
 angular.module('app').run ($rootScope, $state, auth, notifications) ->
-  auth.requestCurrentUser()
-  $rootScope.$on('$stateChangeStart', (event, toState, toParams, fromState, fromParams) ->
-    notifications.clear()
-    auth.authenticateRoute toState, event
-  )
+  auth.requestCurrentUser().then ->
+    $rootScope.$on('$stateChangeStart', (event, toState, toParams, fromState, fromParams) ->
+      notifications.clear()
+      auth.authenticateRoute toState, event
+    )
